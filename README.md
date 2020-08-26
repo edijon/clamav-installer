@@ -7,7 +7,7 @@ Scripts permettant l'installation et la configuration de clamAV sur différents 
 ### Centos 8
 
 ```bash
-git clone ssh://git@github.com/edijon/clamav.git
+git clone ssh://git@github.com/edijon/clamav-tools.git
 cd clamav
 ./clamav-install-centos.sh
 ```
