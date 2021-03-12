@@ -3,9 +3,6 @@
 # Install clamav services with on-access scanning.
 # watch home directory.
 
-SCRIPT_DIRECTORY=$(readlink -f $0)
-SCRIPT_DIRECTORY=$(cd $(dirname $SCRIPT_DIRECTORY); pwd)
-
 main(){
     echo -e "CHECKING OS...\n"
     os=$(cat /etc/os-release | grep --word-regexp ID | awk -F '=' '{print $2}')
@@ -31,7 +28,7 @@ _install_clamav_ubuntu(){
     echo ""
 
     _configure_clamav $clamav_configuration_file
-    _configure_clamav_onaccess_scanning $systemd_clamonacc_service_file $clamav_configuration_file
+    _install_clamav_onaccess_scanning_service $systemd_clamonacc_service_file $clamav_configuration_file
 
     echo "START SERVICES..."
     _start_clamav
@@ -51,7 +48,7 @@ OnAccessExcludeRootUID yes
 EOF"
 }
 
-_configure_clamav_onaccess_scanning(){
+_install_clamav_onaccess_scanning_service(){
     systemd_clamonacc_service_file=$1
     clamav_configuration_file=$2
 
