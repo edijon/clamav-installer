@@ -1,10 +1,12 @@
 # clamav on-access scanning installer
 
-Developped with bash for Ubuntu 20.04 LTS
+- `ClamAV` website : https://www.clamav.net/
+- Developped with bash for Ubuntu 20.04 LTS
+- You are free to use it on your own risk
 
 ## Usage
 
-### Ubuntu 20.04
+### Ubuntu 20.04 LTS
 
 - Get this repository
     ```bash
