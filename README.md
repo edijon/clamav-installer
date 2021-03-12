@@ -8,7 +8,7 @@ Developped with bash for Ubuntu 20.04 LTS
 
 - Get this repository
     ```bash
-    git clone --depth=1 ssh://git@github.com/edijon/clamav-tools.git
+    git clone --depth=1 ssh://git@github.com/edijon/clamav-installer.git
     ```
 - Run `install.sh`
     ```bash
