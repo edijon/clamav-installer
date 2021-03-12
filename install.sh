@@ -7,10 +7,7 @@ SCRIPT_DIRECTORY=$(readlink -f $0)
 SCRIPT_DIRECTORY=$(cd $(dirname $SCRIPT_DIRECTORY); pwd)
 
 main(){
-    install_clamav
-}
-
-install_clamav(){
+    echo -e "CHECKING OS...\n"
     os=$(cat /etc/os-release | grep --word-regexp ID | awk -F '=' '{print $2}')
     if [ $os == "ubuntu" ]
     then
@@ -25,12 +22,18 @@ _install_clamav_ubuntu(){
     clamav_configuration_file="/etc/clamav/clamd.conf"
     systemd_clamonacc_service_file="/etc/systemd/system/clamonacc.service"
 
+    echo "CONFIGURATION FILE FOR CLAMAV : $clamav_configuration_file"
+    echo "SERVICE UNIT FILE FOR CLAMONACC : $systemd_clamonacc_service_file"
+
+    echo -e "INSTALL PACKAGES...\n"
     sudo apt update && \
     sudo apt install clamav-daemon
+    echo ""
 
     _configure_clamav $clamav_configuration_file
     _configure_clamav_onaccess_scanning $systemd_clamonacc_service_file $clamav_configuration_file
 
+    echo "START SERVICES..."
     _start_clamav
 }
 
