@@ -10,7 +10,7 @@
 
 - Get this repository
     ```bash
-    git clone --depth=1 ssh://git@github.com/edijon/clamav-installer.git
+    git clone --depth=1 https://github.com/edijon/clamav-installer.git
     ```
 - Run `install.sh`
     ```bash
