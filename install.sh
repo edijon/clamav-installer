@@ -11,7 +11,7 @@ main(){
 }
 
 install_clamav(){
-    os=$(cat /etc/os-release | grep ID | awk -F '=' '{print $2}')
+    os=$(cat /etc/os-release | grep --word-regexp ID | awk -F '=' '{print $2}')
     if [ $os == "ubuntu" ]
     then
         _install_clamav_ubuntu
@@ -34,7 +34,7 @@ _install_clamav_ubuntu(){
     _start_clamav
 }
 
-_configure_clamav(){}{
+_configure_clamav(){
     clamav_configuration_file=$1
 
     sudo bash -c \
@@ -48,7 +48,7 @@ OnAccessExcludeRootUID yes
 EOF"
 }
 
-_configure_clamav_onaccess_scanning(){}{
+_configure_clamav_onaccess_scanning(){
     systemd_clamonacc_service_file=$1
     clamav_configuration_file=$2
 
@@ -74,6 +74,7 @@ EOF"
 _start_clamav(){
     sudo systemctl enable --now clamav-daemon.service && \
     sudo systemctl enable --now clamav-freshclam.service && \
+    sleep 5 && \
     sudo systemctl enable --now clamonacc.service
 }
 
