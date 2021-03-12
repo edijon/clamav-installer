@@ -1,3 +1,5 @@
+![ci_workflow](https://github.com/edijon/clamav-installer/actions/workflows/blank.yml/badge.svg)
+
 # clamav on-access scanning installer
 
 - `ClamAV` website : https://www.clamav.net/
