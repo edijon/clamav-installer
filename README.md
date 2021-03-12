@@ -1,13 +1,17 @@
-# clamav
+# clamav on-access scanning installer
 
-Scripts permettant l'installation et la configuration de clamAV sur différents systèmes.
+Developped with bash for Ubuntu 20.04 LTS
 
 ## Usage
 
-### Centos 8
+### Ubuntu 20.04
 
-```bash
-git clone ssh://git@github.com/edijon/clamav-tools.git
-cd clamav
-./clamav-install-centos.sh
-```
+- Get this repository
+    ```bash
+    git clone --depth=1 ssh://git@github.com/edijon/clamav-tools.git
+    ```
+- Run `install.sh`
+    ```bash
+    cd clamav-installer
+    ./install.sh
+    ```
