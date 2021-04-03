@@ -6,8 +6,8 @@
 
 main(){
     echo -e "CHECKING OS...\n"
-    os=$(cat /etc/os-release | grep --word-regexp ID | awk -F '=' '{print $2}')
-    if [ $os == "ubuntu" ]
+    os=$(grep --word-regexp ID < /etc/os-release | awk -F '=' '{print $2}')
+    if [ "$os" == "ubuntu" ]
     then
         _install_clamav_ubuntu
     else
@@ -84,4 +84,4 @@ _start_clamav(){
 }
 
 
-main $@
+main "$@"
